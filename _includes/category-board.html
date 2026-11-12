@@ -1,0 +1,17 @@
+{% include category-context.html %}
+{% include publication-nav.html %}
+{% assign board_posts = '' | split: '' %}
+{% if active_category != '' %}
+  {% assign board_posts = site.posts | where_exp: 'post', 'post.categories contains active_category' %}
+{% elsif active_group %}
+  {% for post in site.posts %}
+    {% assign belongs = false %}
+    {% if post.categories contains active_group.id %}{% assign belongs = true %}{% endif %}
+    {% for item in active_group.items %}{% if post.categories contains item.id %}{% assign belongs = true %}{% endif %}{% endfor %}
+    {% if belongs %}{% assign board_posts = board_posts | push: post %}{% endif %}
+  {% endfor %}
+{% endif %}
+<section class="posts-section shell" aria-label="{{ page.title | escape }} 글 목록">
+
+  <div class="post-list">{% for post in board_posts %}{% include card.html post=post %}{% else %}<p class="empty-category">아직 작성한 글이 없습니다. 다른 하위 카테고리를 선택해 보세요.</p>{% endfor %}</div>
+</section>

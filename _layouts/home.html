@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<div class="publication-banner"><img src="{{ '/assets/reference-banner.png' | relative_url }}" alt="Opening Doors to Local Living" width="2400" height="300"></div>
+{% include publication-profile.html %}
+{% include category-context.html %}
+{% include publication-nav.html %}
+<section class="posts-section shell" aria-label="글 목록"><p class="sr-only" id="post-count">{{ site.posts.size }}개의 글</p><div class="post-list">{% for post in site.posts %}{% include card.html post=post %}{% endfor %}</div></section>

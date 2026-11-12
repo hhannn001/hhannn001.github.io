@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{% include post-meta.html post=page %}
+<article class="post post--reader" id="postArticle">
+  <header class="post__header"><nav class="post__category-kicker" aria-label="글 위치"><a href="{{ '/' | relative_url }}">전체</a>{% if parent_group %}<span>/</span><a href="{{ '/categories/' | append: parent_group.id | append: '/' | relative_url }}">{{ parent_group.label }}</a>{% endif %}{% if category_id and category_id != parent_group.id %}<span>/</span><a href="{{ '/categories/' | append: category_id | append: '/' | relative_url }}">{{ category_name }}</a>{% endif %}{% if series_title != '' %}<span>/</span><span>{{ series_title | escape }}</span>{% endif %}</nav><h1 class="post__title">{{ display_title | escape }}</h1><p class="post__meta"><span>{{ page.author | default: site.author }}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p></header>
+  <section class="post__content" id="postContent">{{ content }}</section>
+  {% if page.tags.size > 0 %}<footer class="post__tail" aria-label="태그"><ul class="post__tags">{% for tag in page.tags %}<li>{{ tag | escape }}</li>{% endfor %}</ul></footer>{% endif %}
+  {% assign related_posts = site.categories[category_id] | where_exp: 'post', 'post.url != page.url' %}
+  <section class="post-feed" aria-label="같은 카테고리의 글"><h2>{{ category_name }}의 다른 글</h2><ul>{% for related in related_posts limit: 5 %}<li><a href="{{ related.url | relative_url }}">{{ related.title | escape }}</a><time>{{ related.date | date: '%Y.%m.%d' }}</time></li>{% else %}<li>아직 다른 글이 없습니다.</li>{% endfor %}</ul><a class="post-feed-all" href="{{ '/categories/' | append: category_id | append: '/' | relative_url }}">{{ category_name }} 전체 보기</a></section>
+</article>

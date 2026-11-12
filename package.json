@@ -1,0 +1,9 @@
+{
+  "name": "hhannn001-blog",
+  "private": true,
+  "scripts": {
+    "editor:dev": "node scripts/start-editor.cjs",
+    "editor:install": "npm --prefix editor ci",
+    "editor:test": "npm --prefix editor test"
+  }
+}

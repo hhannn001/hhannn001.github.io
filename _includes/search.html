@@ -1,0 +1,6 @@
+<form class="site-search" role="search" autocomplete="off" data-index="{{ '/search-index.json' | relative_url }}">
+  <label class="sr-only" for="site-search-{{ include.id }}">글 검색</label>
+  <input id="site-search-{{ include.id }}" type="search" placeholder="글 검색" aria-controls="search-results-{{ include.id }}" aria-expanded="false">
+  <button type="submit" class="site-search__button" aria-label="검색 결과 열기"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  <div class="search-results" id="search-results-{{ include.id }}" hidden aria-live="polite"></div>
+</form>
