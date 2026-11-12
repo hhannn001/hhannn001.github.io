@@ -1,0 +1,22 @@
+title: hhannn001의 블로그
+description: 배우고 만든 것을 기록합니다.
+author: hhannn001
+url: "https://hhannn001.github.io"
+baseurl: ""
+lang: ko
+timezone: Asia/Seoul
+theme: minima
+github_username: hhannn001
+permalink: /posts/:title/
+show_excerpts: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+header_pages:
+  - about.md
+minima:
+  date_format: "%Y.%m.%d"
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
