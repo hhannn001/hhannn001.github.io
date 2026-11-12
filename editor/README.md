@@ -1,4 +1,4 @@
-# LH99Tw Local Editor
+# hhannn001 Local Editor
 
 `editor/`는 `_posts/*.md`를 로컬에서 관리하기 위한 Electron 기반 마크다운 편집기입니다.
 
@@ -14,14 +14,17 @@
 ## 실행
 
 ```bash
-cd editor
-npm install
-npm run dev
+npm run editor:install
+npm run editor:dev
 ```
+
+위 명령은 블로그 저장소 루트에서 실행합니다. 실행 스크립트가 현재 저장소를 작업 폴더로 지정합니다.
+기존의 추가 메타데이터와 글 파일명은 수정 저장 시 보존됩니다.
 
 ## 빌드
 
 ```bash
+cd editor
 npm run build
 ```
 
