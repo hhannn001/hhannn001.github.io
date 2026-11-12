@@ -81,8 +81,8 @@ html[data-theme="dark"] { --marker: #49375e; --marker-edge: #634b7e; }
 .category-highlight::before { content: ""; position: absolute; z-index: -1; inset: 4px 0 1px; background: var(--marker); transform: skewX(-13deg); }
 .cover-placeholder { background: var(--surface); }
 /* The selected top-level menu anchors an attached submenu box. */
-:root { --nav-line: #272727; }
-html[data-theme="dark"] { --nav-line: #c4c4c4; }
+:root { --nav-line: #777; --submenu-bg: #eee7f5; }
+html[data-theme="dark"] { --nav-line: #999; --submenu-bg: #332a3b; }
 .publication-navigation { border-bottom: 0; }
 .navigation-inner { position: relative; }
 .navigation-inner::after {
@@ -111,7 +111,7 @@ html[data-theme="dark"] { --nav-line: #c4c4c4; }
   border: 1px solid var(--nav-line);
   border-top: 0;
   border-radius: 0 0 5px 5px;
-  background: var(--bg);
+  background: var(--submenu-bg);
   scrollbar-width: thin;
 }
 .subcategory-nav a { font-size: 12px; line-height: 20px; letter-spacing: -.01em; }
@@ -123,7 +123,6 @@ html[data-theme="dark"] { --nav-line: #c4c4c4; }
 .entry-copy h2, .featured .entry-copy h2 { margin: 3px 0 0; font-size: 17px; line-height: 22px; letter-spacing: -.015em; }
 .entry-meta { margin-top: 8px; gap: 7px; font-size: 11px; line-height: 17px; }
 @media (max-width: 727.98px) {
-  .submenu-shell { height: 42px; }
-  .submenu-shell .subcategory-nav { left: 0; right: 0; gap: 12px; }
+  .submenu-shell { display: none; }
   .post-list { row-gap: 22px; }
 }
