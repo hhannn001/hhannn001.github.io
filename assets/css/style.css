@@ -81,8 +81,8 @@ html[data-theme="dark"] { --marker: #49375e; --marker-edge: #634b7e; }
 .category-highlight::before { content: ""; position: absolute; z-index: -1; inset: 4px 0 1px; background: var(--marker); transform: skewX(-13deg); }
 .cover-placeholder { background: var(--surface); }
 /* The selected top-level menu anchors an attached submenu box. */
-:root { --nav-line: #777; --submenu-bg: #eee7f5; }
-html[data-theme="dark"] { --nav-line: #999; --submenu-bg: #332a3b; }
+:root { --nav-line: #b8b8b8; --submenu-bg: #eee7f5; }
+html[data-theme="dark"] { --nav-line: #686868; --submenu-bg: #332a3b; }
 .publication-navigation { border-bottom: 0; }
 .navigation-inner { position: relative; }
 .navigation-inner::after {
