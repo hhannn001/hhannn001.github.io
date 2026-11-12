@@ -2,7 +2,7 @@
 
 https://hhannn001.github.io
 
-GitHub Pages + Jekyll + Minima 기본 블로그입니다.
+GitHub Pages + Jekyll 개인 블로그입니다.
 
 ## 글 추가
 
@@ -39,3 +39,13 @@ bundle exec jekyll serve
 ```
 
 http://localhost:4000 에서 확인합니다.
+
+## 디자인 초안
+
+기본 화이트 모드이며 헤더 버튼으로 다크 모드를 선택할 수 있습니다. 선택은 이 브라우저에 저장됩니다. OS에 따른 자동 전환은 아직 적용하지 않습니다. 색상은 `assets/blog.css`의 테마 변수로 분리했습니다.
+
+`published: false`인 글 3개는 디자인 확인용 샘플입니다. 기본 배포에는 포함되지 않습니다. 샘플까지 미리보려면 `bundle exec jekyll serve --unpublished`를 실행하세요.
+
+글의 선택 항목: `description`, `category_key` (engineering / ai / notes), `category_label`, `cover` (이미지 경로), `cover_alt`.
+
+정보 박스는 `<div class="callout" markdown="1">` 안에 Markdown으로 작성할 수 있습니다. 일반 제목, 목록, 코드 블록, 표, 인용문은 기본 Markdown 문법을 사용합니다.

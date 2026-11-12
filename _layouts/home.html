@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<div class="shell">
+  <section class="intro"><h1>개발 노트</h1><p>배운 것, 만든 것, 아직 풀지 못한 것.<br>개발하면서 남겨두는 기록입니다.</p></section>
+  <nav class="categories" aria-label="글 카테고리"><a href="#all" data-filter="all" aria-current="page">전체 글 <span>{{ site.posts.size }}</span></a><a href="#engineering" data-filter="engineering">Engineering</a><a href="#ai" data-filter="ai">AI / ML</a><a href="#notes" data-filter="notes">기록</a></nav>
+  <section class="posts-section" aria-label="글 목록"><p class="sr-only" id="post-count" aria-live="polite">{{ site.posts.size }}개의 글</p><div class="post-list">{% for post in site.posts %}{% include card.html post=post featured=forloop.first %}{% endfor %}</div><p id="empty-state" hidden>아직 이 카테고리에 작성한 글이 없습니다.</p></section>
+</div>

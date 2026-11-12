@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article class="article-shell">
+  <header class="article-header"><a class="back-link" href="{{ '/' | relative_url }}">모든 글</a><h1>{{ page.title | escape }}</h1><p class="article-description">{{ page.description }}</p><div class="article-meta"><span>{{ page.author | default: site.author }}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time><span>{{ page.category_label | default: '기록' }}</span>{% if page.published == false %}<span>디자인 샘플</span>{% endif %}</div></header>
+  {% if page.cover %}<div class="article-cover">{% include cover.html post=page %}</div>{% endif %}
+  <div class="prose">{{ content }}</div>
+  <div class="article-end"><a href="{{ '/' | relative_url }}">목록으로 돌아가기</a><a href="{{ '/feed.xml' | relative_url }}">RSS로 구독하기</a></div>
+</article>

@@ -1,0 +1,7 @@
+{% if include.post.cover %}
+<img class="cover-image" src="{{ include.post.cover | relative_url }}" alt="{{ include.post.cover_alt | default: '' | escape }}" loading="lazy">
+{% elsif include.post.slug == 'markdown-guide' %}
+<div class="writing-cover" aria-hidden="true"><div class="paper"><span class="paper-tab">.md</span><span class="paper-heading"><em>#</em> 오늘의 기록</span><span class="paper-line">배운 내용을 나의 언어로.</span><span class="paper-rule"></span><span class="paper-code">## 기억할 것<br><br>- 작게 나누어 쓰기<br>- 코드와 맥락 함께 남기기<br>- 다시 읽고 고치기</span></div></div>
+{% else %}
+<div class="text-cover" aria-hidden="true"><span>{{ include.post.title | escape }}</span></div>
+{% endif %}
