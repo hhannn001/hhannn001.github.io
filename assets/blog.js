@@ -21,13 +21,18 @@ function filterPosts() {
   const key     = location.hash.slice(1);
   const current = filters.some(link => link.dataset.filter === key) ? key : 'all';
   let visible   = 0;
+  const categoryNames = { engineering: 'Engineering', ai: 'AI/ML', data: 'Data', notes: '기록' };
+  const heading       = document.querySelector('#category-title');
+  root.classList.toggle('filtered', current !== 'all');
+  heading.hidden      = current === 'all';
+  heading.textContent = categoryNames[current] || '';
   filters.forEach(link => {
     if (link.dataset.filter === current) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
   entries.forEach(entry => {
     entry.hidden = current !== 'all' && entry.dataset.category !== current;
-    entry.classList.toggle('featured', !entry.hidden && visible === 0);
+    entry.classList.toggle('featured', current !== 'all' && !entry.hidden && visible === 0);
     if (!entry.hidden) visible += 1;
   });
   document.querySelector('#post-count').textContent = `${visible}개의 글`;

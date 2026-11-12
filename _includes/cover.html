@@ -1,7 +1,17 @@
 {% if include.post.cover %}
 <img class="cover-image" src="{{ include.post.cover | relative_url }}" alt="{{ include.post.cover_alt | default: '' | escape }}" loading="lazy">
 {% elsif include.post.slug == 'markdown-guide' %}
-<div class="writing-cover" aria-hidden="true"><div class="paper"><span class="paper-tab">.md</span><span class="paper-heading"><em>#</em> 오늘의 기록</span><span class="paper-line">배운 내용을 나의 언어로.</span><span class="paper-rule"></span><span class="paper-code">## 기억할 것<br><br>- 작게 나누어 쓰기<br>- 코드와 맥락 함께 남기기<br>- 다시 읽고 고치기</span></div></div>
+<div class="thumbnail thumbnail-writing" aria-hidden="true"><div class="thumbnail-heading"><small>Markdown 작성 가이드</small><strong>생각에서<br>기록까지</strong></div><div class="note-pages"><div class="note-page rear"># Markdown</div><div class="note-page front"><b>오늘의 기록</b><span>제목</span><i></i><i></i><span>코드와 맥락</span><code>const note = '배운 것';</code></div></div></div>
+{% elsif include.post.slug == 'ai-notes' %}
+<div class="thumbnail thumbnail-ai" aria-hidden="true"><div class="thumbnail-heading"><small>AI 도구 사용 기록</small><strong>결과를 이해하는<br>세 가지 질문</strong><p>문제 정의<br>결과 확인<br>다음 시도</p></div><div class="prompt-paper"><b>오늘의 질문</b><hr><p>무엇을 해결하고 싶은가?</p><hr><p>결과를 어떻게 확인할까?</p><hr><p>다음에는 무엇을 바꿀까?</p></div></div>
+{% elsif include.post.slug == 'building-log' %}
+<div class="thumbnail thumbnail-code" aria-hidden="true"><div class="code-window"><div class="code-tab">build-notes.md</div><pre><span># 첫 번째 버전</span>
+
+## 확인할 것
+
+- 의도한 동작
+- 불필요한 요소
+- 다음 단계</pre></div></div>
 {% else %}
-<div class="text-cover" aria-hidden="true"><span>{{ include.post.title | escape }}</span></div>
+<div class="thumbnail thumbnail-welcome" aria-hidden="true"><span>hhannn001</span><strong>블로그를<br>시작합니다.</strong></div>
 {% endif %}

@@ -49,3 +49,9 @@ http://localhost:4000 에서 확인합니다.
 글의 선택 항목: `description`, `category_key` (engineering / ai / notes), `category_label`, `cover` (이미지 경로), `cover_alt`.
 
 정보 박스는 `<div class="callout" markdown="1">` 안에 Markdown으로 작성할 수 있습니다. 일반 제목, 목록, 코드 블록, 표, 인용문은 기본 Markdown 문법을 사용합니다.
+
+## 원본 레이아웃 기준
+
+당근 기술 블로그 https://medium.com/daangn 의 공개 DOM과 계산된 CSS를 확인해 레이아웃을 맞췄습니다. 최대 폭 1192px, 24px 열 간격, 2:1 썸네일, 홈 3열, 카테고리 대표 글은 이미지:본문 1.26:1입니다.
+
+배너는 비교용으로 원본 공개 이미지를 사용합니다. 출처는 assets/SOURCES.md에 기록했습니다. 색상과 블로그 이름, 글 내용은 개인 블로그 설정을 따릅니다.
