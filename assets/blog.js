@@ -23,3 +23,17 @@ if (selectedSubcategory) {
   const nav = selectedSubcategory.parentElement;
   nav.scrollLeft = Math.max(0, selectedSubcategory.offsetLeft - nav.offsetLeft - 24);
 }
+const submenuShell      = document.querySelector('.submenu-shell');
+const activeTopCategory = document.querySelector('.categories a[aria-current="page"]');
+if (submenuShell && activeTopCategory) {
+  const alignSubmenu = () => {
+    const shellBounds  = submenuShell.getBoundingClientRect();
+    const activeBounds = activeTopCategory.getBoundingClientRect();
+    const submenuWidth = submenuShell.querySelector('.subcategory-nav').getBoundingClientRect().width;
+    const desiredLeft  = activeBounds.left - shellBounds.left;
+    const safeLeft     = Math.max(0, Math.min(desiredLeft, shellBounds.width - submenuWidth));
+    submenuShell.style.setProperty('--submenu-left', safeLeft + 'px');
+  };
+  alignSubmenu();
+  window.addEventListener('resize', alignSubmenu);
+}
