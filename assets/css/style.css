@@ -143,3 +143,17 @@ html[data-theme="dark"] { --nav-line: #686868; --submenu-bg: #332a3b; }
 .subcategory-nav a[aria-current] { text-decoration: none; font-weight: 700; }
 .filtered .posts-section { margin-top: 48px; }
 @media (max-width: 727.98px) { .filtered .posts-section { margin-top: 24px; } }
+
+.site-search { position: relative; flex: 0 0 150px; align-self: center; margin-left: auto; }
+.site-search input { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 18px; background: var(--bg); color: var(--text); font: inherit; font-size: 12px; }
+.site-search input::placeholder { color: var(--muted); }
+.site-search input:focus { outline: 2px solid var(--marker-edge); outline-offset: 1px; }
+.search-results { position: absolute; z-index: 20; top: calc(100% + 7px); right: 0; width: min(380px, calc(100vw - 48px)); max-height: 360px; overflow-y: auto; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); box-shadow: 0 10px 24px rgba(0,0,0,.1); }
+.search-results a, .search-results p { display: block; margin: 0; padding: 10px 12px; font-size: 13px; line-height: 1.45; }
+.search-results a:hover, .search-results a:focus-visible { background: var(--surface); }
+.site-footer .theme-toggle { margin-top: -8px; }
+@media (max-width: 727.98px) {
+  .site-search { flex-basis: 88px; }
+  .site-search input { padding: 6px 8px; }
+  .site-footer .theme-label { display: inline; }
+}

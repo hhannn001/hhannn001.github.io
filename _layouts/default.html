@@ -21,12 +21,12 @@
   <header class="site-header shell">
     <a class="wordmark" href="{{ '/' | relative_url }}">hhannn001</a>
     <nav aria-label="주 메뉴"><a href="{{ '/' | relative_url }}" {% if page.layout == 'home' %}aria-current="page"{% endif %}>글</a><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a><a href="https://github.com/hhannn001">GitHub</a></nav>
-    {% include theme-toggle.html %}
+    {% include search.html id="desktop" %}
   </header>
   {% endunless %}
   {% unless page.layout == 'home' %}<div class="mobile-profile">{% include publication-profile.html %}</div>{% endunless %}
   {% unless page.layout == 'home' or page.category_board %}<div class="mobile-main-nav">{% include category-context.html %}{% include publication-nav.html %}</div>{% endunless %}
   <main id="main">{{ content }}</main>
-  <footer class="site-footer shell"><span>hhannn001</span><div><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="https://github.com/hhannn001/hhannn001.github.io">블로그 소스</a></div></footer>
+  <footer class="site-footer shell"><span>hhannn001</span><div><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="https://github.com/hhannn001/hhannn001.github.io">블로그 소스</a>{% include theme-toggle.html %}</div></footer>
 </body>
 </html>

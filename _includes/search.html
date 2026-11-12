@@ -1,0 +1,5 @@
+<form class="site-search" role="search" autocomplete="off" data-index="{{ '/search-index.json' | relative_url }}">
+  <label class="sr-only" for="site-search-{{ include.id }}">글 검색</label>
+  <input id="site-search-{{ include.id }}" type="search" placeholder="글 검색" aria-controls="search-results-{{ include.id }}" aria-expanded="false">
+  <div class="search-results" id="search-results-{{ include.id }}" hidden aria-live="polite"></div>
+</form>

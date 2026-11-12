@@ -39,3 +39,51 @@ if (submenuShell && activeTopCategory) {
   alignSubmenu();
   window.addEventListener('resize', alignSubmenu);
 }
+const searchForms = document.querySelectorAll('.site-search');
+let searchIndex;
+searchForms.forEach((form) => {
+  const input   = form.querySelector('input');
+  const results = form.querySelector('.search-results');
+  const close   = () => { results.hidden = true; input.setAttribute('aria-expanded', 'false'); };
+  const render  = async () => {
+    const query = input.value.trim().toLocaleLowerCase();
+    if (!query) { close(); return; }
+    try {
+      searchIndex ??= fetch(form.dataset.index).then((response) => {
+        if (!response.ok) throw new Error('검색 목록을 불러오지 못했습니다.');
+        return response.json();
+      });
+      const posts   = await searchIndex;
+      const matches = posts.filter((post) => (post.title + ' ' + post.description).toLocaleLowerCase().includes(query)).slice(0, 8);
+      results.replaceChildren();
+      if (matches.length) {
+        matches.forEach((post) => {
+          const link = document.createElement('a');
+          link.href  = post.url;
+          link.textContent = post.title;
+          results.append(link);
+        });
+      } else {
+        const empty = document.createElement('p');
+        empty.textContent = '검색 결과가 없습니다.';
+        results.append(empty);
+      }
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    } catch (_) {
+      const error = document.createElement('p');
+      error.textContent = '검색 목록을 불러오지 못했습니다.';
+      results.replaceChildren(error);
+      results.hidden = false;
+    }
+  };
+  input.addEventListener('input', render);
+  input.addEventListener('focus', render);
+  input.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const first = results.querySelector('a');
+    if (first) location.assign(first.href);
+  });
+  document.addEventListener('click', (event) => { if (!form.contains(event.target)) close(); });
+});
