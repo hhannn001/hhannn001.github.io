@@ -170,3 +170,16 @@ html[data-theme="dark"] { --search-line: #806997; --search-icon: #c8b1df; }
 .profile-social a:hover { background: var(--marker); color: var(--text); text-decoration: none; }
 .profile-social svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 727.98px) { .profile-social { grid-column: 1 / -1; margin-top: 1px; } }
+
+.home .site-search { transform: translateY(-9px); }
+.profile-social img { display: block; width: 17px; height: 17px; object-fit: contain; filter: invert(51%) sepia(13%) saturate(1245%) hue-rotate(221deg) brightness(88%) contrast(89%); }
+html[data-theme="dark"] .profile-social img { filter: invert(77%) sepia(14%) saturate(615%) hue-rotate(221deg) brightness(93%) contrast(89%); }
+.profile-social .social-x { font-size: 19px; line-height: 1; font-weight: 600; }
+.publication-info .profile-social { margin-top: 12px; }
+@media (max-width: 727.98px) { .publication-info .profile-social { margin-top: 2px; } }
+/* Source PNGs keep their white symbols; screen blend supplies a uniform purple field. */
+.profile-social a { background: #9778b1; color: #fff; }
+html[data-theme="dark"] .profile-social a { background: #6b5183; }
+.profile-social img, html[data-theme="dark"] .profile-social img { filter: grayscale(1) contrast(1.4); mix-blend-mode: screen; }
+.profile-social a:hover { background: #7e6197; color: #fff; }
+.profile-social a[aria-label="GitHub"] img { filter: brightness(0) invert(1); mix-blend-mode: normal; }
