@@ -2,11 +2,7 @@
 layout: default
 ---
 <div class="publication-banner"><img src="{{ '/assets/reference-banner.png' | relative_url }}" alt="Opening Doors to Local Living" width="2400" height="300"></div>
-<section class="publication-profile shell">
-  <a class="publication-avatar" href="{{ '/about/' | relative_url }}" aria-label="블로그 소개">h</a>
-  <div class="publication-info"><h1>hhannn001 기술 블로그</h1><p>배운 기술과 직접 만든 것들, 개발하면서 만난 문제와 해결 과정을 기록합니다.</p><div class="publication-meta"><span>{{ site.posts.size }}개의 기록</span><span class="author-avatar" aria-hidden="true">h</span><a href="{{ '/about/' | relative_url }}">hhannn001</a></div></div>
-  <div class="profile-actions"><a class="follow-button" href="https://github.com/hhannn001">GitHub</a><a class="feed-button" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS 구독"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a></div>
-</section>
+{% include publication-profile.html %}
 {% include category-context.html %}
 {% include publication-nav.html %}
 <section class="posts-section shell" aria-label="글 목록"><p class="sr-only" id="post-count">{{ site.posts.size }}개의 글</p><div class="post-list">{% for post in site.posts %}{% include card.html post=post %}{% endfor %}</div></section>

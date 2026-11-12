@@ -12,7 +12,7 @@ const button = {
 };
 const saved  = {};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/blog.js'), 'utf8'), {
- document: {documentElement: root, querySelector: selector => selector === '.theme-toggle' ? button : null},
+ document: {documentElement: root, querySelector: () => null, querySelectorAll: selector => selector === '.theme-toggle' ? [button] : []},
  localStorage: {setItem(key, value) { saved[key] = value; }},
  location: {pathname: '/', hash: ''}
 });

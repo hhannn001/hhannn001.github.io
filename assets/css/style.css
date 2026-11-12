@@ -126,3 +126,12 @@ html[data-theme="dark"] { --nav-line: #999; --submenu-bg: #332a3b; }
   .submenu-shell { display: none; }
   .post-list { row-gap: 22px; }
 }
+
+.mobile-profile, .mobile-main-nav { display: none; }
+@media (max-width: 727.98px) {
+  .publication-banner { display: none; }
+  .mobile-profile, .mobile-main-nav { display: block; }
+  .site-header { display: none; }
+  .mobile-profile .publication-profile { display: grid; margin-top: 0; }
+  .filtered .posts-section { margin-top: 24px; }
+}

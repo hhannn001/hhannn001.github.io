@@ -24,6 +24,8 @@
     {% include theme-toggle.html %}
   </header>
   {% endunless %}
+  {% unless page.layout == 'home' %}<div class="mobile-profile">{% include publication-profile.html %}</div>{% endunless %}
+  {% unless page.layout == 'home' or page.category_board %}<div class="mobile-main-nav">{% include category-context.html %}{% include publication-nav.html %}</div>{% endunless %}
   <main id="main">{{ content }}</main>
   <footer class="site-footer shell"><span>hhannn001</span><div><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="https://github.com/hhannn001/hhannn001.github.io">블로그 소스</a></div></footer>
 </body>

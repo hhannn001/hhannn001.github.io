@@ -1,18 +1,20 @@
-const themeButton = document.querySelector('.theme-toggle');
-const root        = document.documentElement;
+const themeButtons = document.querySelectorAll('.theme-toggle');
+const root         = document.documentElement;
 
 function syncTheme() {
   const dark = root.dataset.theme === 'dark';
-  themeButton.setAttribute('aria-pressed', String(dark));
-  themeButton.setAttribute('aria-label', dark ? '화이트 모드로 전환' : '다크 모드로 전환');
-  themeButton.querySelector('.theme-label').textContent = dark ? '화이트' : '다크';
+  themeButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(dark));
+    button.setAttribute('aria-label', dark ? '화이트 모드로 전환' : '다크 모드로 전환');
+    button.querySelector('.theme-label').textContent = dark ? '화이트' : '다크';
+  });
 }
 syncTheme();
-themeButton.addEventListener('click', () => {
+themeButtons.forEach((button) => button.addEventListener('click', () => {
   root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
   try { localStorage.setItem('blog-theme', root.dataset.theme); } catch (_) {}
   syncTheme();
-});
+}));
 
 const legacyCategories = { ai: 'ai', notes: 'journal', engineering: 'programming', data: 'ai' };
 if (location.pathname === '/' && legacyCategories[location.hash.slice(1)]) {
