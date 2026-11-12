@@ -7,10 +7,7 @@ body, a, .categories a, .publication-meta, .entry-meta, .theme-toggle, .author-a
 a:hover { color: var(--text); text-decoration: underline; }
 .follow-button, .follow-button:hover { color: var(--bg); }
 .publication-navigation { color: var(--text); }
-.category-heading { display: flex; align-items: baseline; gap: 16px; }
-.category-heading .category-title { margin-bottom: 22px; }
-.category-heading>span { font-size: 13px; color: var(--muted); }
-.subcategory-nav { display: flex; gap: 22px; overflow-x: auto; padding: 0 0 18px; margin: 0 0 32px; border-bottom: 1px solid var(--line); position: relative; }
+.subcategory-nav { display: flex; gap: 22px; overflow-x: auto; padding: 19px 0; margin: 0; border-top: 1px solid var(--line); position: relative; }
 .subcategory-nav a { white-space: nowrap; font-size: 14px; }
 .subcategory-nav a[aria-current] { font-weight: 700; text-decoration: underline; text-underline-offset: 8px; }
 .subcategory-nav span { font-size: 12px; color: var(--muted); }
@@ -36,7 +33,17 @@ a:hover { color: var(--text); text-decoration: underline; }
 .post__content figure { margin: 18px auto; }
 .post__content figcaption { font-size: .78rem; color: var(--muted); text-align: center; }
 .post__content a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-.post__content mark { color: var(--text); background: var(--wash,#e9e0f1); padding: 0 .08em; }
+.post__content mark {
+  color: var(--text);
+  padding: 0 .08em;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  box-shadow: inset 0 -.2em 0 var(--marker-edge);
+  background: linear-gradient(to top,var(--marker) 0%,var(--marker) 66%,var(--surface) 100%);
+}
+.post__content a { background-image: linear-gradient(to top,var(--marker) 0%,var(--marker) 34%,transparent 34%); }
+.post__content a:hover { background-image: linear-gradient(to top,var(--marker-edge) 0%,var(--marker-edge) 38%,transparent 38%); }
 .post__content blockquote { border-left: 2px solid var(--line); background: var(--surface,#f5f5f5); border-radius: 0 10px 10px 0; padding: 12px 14px; }
 .post__content code { font: .84em ui-monospace,SFMono-Regular,Consolas,monospace; background: var(--surface,#f5f5f5); border: 1px solid var(--line,#ddd); border-radius: 6px; padding: .14em .35em; color: var(--text); }
 .post__content pre { padding: 14px; overflow-x: auto; border-radius: 12px; background: var(--surface,#f5f5f5); }
@@ -61,3 +68,15 @@ a:hover { color: var(--text); text-decoration: underline; }
 @media(max-width:727.98px) { .post__header { min-height: 240px; } .post__title { font-size: 30px; } .post-feed li { display: block; } .post-feed time { display: block; margin-top: 5px; } .subcategory-nav { gap: 18px; } .content-cover>strong { font-size: 23px; } }
 
 .prose a, .preview-post .post__content code.hljs span { color: var(--text); }
+
+/* List cards: artwork is intentionally reserved for a later iteration. */
+:root { --marker: #e7dbf5; --marker-edge: #d4bde9; }
+html[data-theme="dark"] { --marker: #49375e; --marker-edge: #634b7e; }
+.entry-copy { min-width: 0; }
+.entry-series { min-height: 18px; margin-top: 14px; font-size: 12px; line-height: 18px; text-align: left; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.entry-copy h2 { margin: 5px 0 0; font-size: 20px; line-height: 28px; }
+.entry-copy h2 a { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.entry-meta { margin-top: 16px; gap: 10px; font-size: 12px; }
+.category-highlight { position: relative; isolation: isolate; padding: 0 5px; }
+.category-highlight::before { content: ""; position: absolute; z-index: -1; inset: 4px 0 1px; background: var(--marker); transform: skewX(-13deg); }
+.cover-placeholder { background: var(--surface); }

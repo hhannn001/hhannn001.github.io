@@ -1,4 +1,1 @@
-{% assign cover_url = include.post.cover | default: include.post.image %}
-{% if cover_url == nil or cover_url == '' %}{% if include.post.content contains '![' %}{% assign image_chunk = include.post.content | split: '![' | slice: 1 | first %}{% assign cover_url = image_chunk | split: '](' | last | split: ')' | first %}{% endif %}{% endif %}
-{% if cover_url and cover_url != '' %}<img class="cover-image" src="{{ cover_url | relative_url }}" alt="{{ include.post.cover_alt | default: include.post.title | escape }}" loading="lazy">
-{% else %}<div class="thumbnail content-cover" aria-hidden="true"><span>{{ category_name }}</span><strong>{{ include.post.title | escape }}</strong></div>{% endif %}
+<div class="thumbnail cover-placeholder" aria-hidden="true"></div>

@@ -11,8 +11,7 @@
     {% if belongs %}{% assign board_posts = board_posts | push: post %}{% endif %}
   {% endfor %}
 {% endif %}
-<section class="posts-section shell" aria-labelledby="category-heading">
-  <header class="category-heading"><h1 class="category-title" id="category-heading">{{ page.title | escape }}</h1><span>{{ board_posts.size }}개의 글</span></header>
-  {% if active_group %}<nav class="subcategory-nav" aria-label="{{ active_group.label }} 하위 카테고리"><a href="{{ '/categories/' | append: active_group.id | append: '/' | relative_url }}" {% if active_category == '' %}aria-current="page"{% endif %}>전체</a>{% for item in active_group.items %}<a href="{{ '/categories/' | append: item.id | append: '/' | relative_url }}" {% if active_category == item.id %}aria-current="page"{% endif %}>{{ item.label }} <span>{{ site.categories[item.id].size | default: 0 }}</span></a>{% endfor %}</nav>{% endif %}
-  <div class="post-list">{% for post in board_posts %}{% include card.html post=post featured=forloop.first %}{% else %}<p class="empty-category">아직 작성한 글이 없습니다. 다른 하위 카테고리를 선택해 보세요.</p>{% endfor %}</div>
+<section class="posts-section shell" aria-label="{{ page.title | escape }} 글 목록">
+
+  <div class="post-list">{% for post in board_posts %}{% include card.html post=post %}{% else %}<p class="empty-category">아직 작성한 글이 없습니다. 다른 하위 카테고리를 선택해 보세요.</p>{% endfor %}</div>
 </section>

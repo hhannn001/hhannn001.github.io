@@ -1,5 +1,9 @@
 {% include post-meta.html post=include.post %}
-<article class="post-entry{% if include.featured %} featured{% endif %}">
+<article class="post-entry">
   <a class="entry-cover" href="{{ include.post.url | relative_url }}" tabindex="-1" aria-hidden="true">{% include cover.html post=include.post %}</a>
-  <div class="entry-copy"><h2><a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a></h2><p>{{ include.post.description | default: include.post.excerpt | strip_html | truncate: 150 }}</p><div class="entry-meta"><span>{{ include.post.author | default: site.author }}</span><span>·</span><time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%Y.%m.%d' }}</time><span>· {{ category_name }}</span></div></div>
+  <div class="entry-copy">
+    <div class="entry-series">{% if series_title != '' %}{{ series_title | escape }}{% endif %}</div>
+    <h2><a href="{{ include.post.url | relative_url }}" title="{{ display_title | escape }}">{{ display_title | escape }}</a></h2>
+    <div class="entry-meta"><time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%Y.%m.%d' }}</time><span aria-hidden="true">|</span><a class="category-highlight" href="{{ '/categories/' | append: category_id | append: '/' | relative_url }}">{{ category_name | escape }}</a></div>
+  </div>
 </article>
