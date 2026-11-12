@@ -32,7 +32,7 @@ if (submenuShell && activeTopCategory) {
     const shellBounds  = submenuShell.getBoundingClientRect();
     const activeBounds = activeTopCategory.getBoundingClientRect();
     const submenuWidth = submenuShell.querySelector('.subcategory-nav').getBoundingClientRect().width;
-    const desiredLeft  = activeBounds.left - shellBounds.left;
+    const desiredLeft  = activeBounds.left + activeBounds.width / 2 - shellBounds.left - submenuWidth / 2;
     const safeLeft     = Math.max(0, Math.min(desiredLeft, shellBounds.width - submenuWidth));
     submenuShell.style.setProperty('--submenu-left', safeLeft + 'px');
   };

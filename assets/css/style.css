@@ -135,3 +135,11 @@ html[data-theme="dark"] { --nav-line: #999; --submenu-bg: #332a3b; }
   .mobile-profile .publication-profile { display: grid; margin-top: 0; }
   .filtered .posts-section { margin-top: 24px; }
 }
+
+/* Keep the selected label clear and let content pass behind the open space. */
+.publication-navigation { background: transparent; }
+.navigation-inner { background: var(--bg); }
+.categories a[aria-current] { border-bottom-color: transparent; font-weight: 700; }
+.subcategory-nav a[aria-current] { text-decoration: none; font-weight: 700; }
+.filtered .posts-section { margin-top: 48px; }
+@media (max-width: 727.98px) { .filtered .posts-section { margin-top: 24px; } }
