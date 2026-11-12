@@ -98,3 +98,8 @@ npm --prefix editor run typecheck
 
 원본 글 21개와 이미지 12개를 옮겼습니다. 원본 폴더는 변경하지 않았습니다.
 기존 도메인의 검색 소유권 인증, 광고, 분석 설정은 새 도메인에 자동으로 이식하지 않습니다.
+
+## 소셜 링크
+
+프로필의 GitHub, Instagram, LinkedIn, Threads 주소는 기존 블로그의 공개 계정 정보를 사용합니다.
+X는 계정 주소를 찾지 못해 현재 X 홈으로 연결합니다. 실제 계정이 정해지면 `_config.yml`의 `social_x_url`을 바꾸세요.

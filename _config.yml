@@ -6,6 +6,7 @@ baseurl: ""
 lang: ko
 timezone: Asia/Seoul
 github_username: hhannn001
+social_x_url: "https://x.com/"
 permalink: /blog/:year/:month/:day/:title/
 show_excerpts: true
 plugins:
