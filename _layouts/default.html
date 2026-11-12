@@ -13,10 +13,11 @@
   {% feed_meta %}
   <link rel="stylesheet" href="{{ '/assets/blog.css' | relative_url }}">
   <script defer src="{{ '/assets/blog.js' | relative_url }}"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-<body class="{{ page.layout }}">
+<body class="{{ page.layout }}{% if page.category_board %} filtered{% endif %}">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-  {% unless page.layout == 'home' %}
+  {% unless page.layout == 'home' or page.category_board %}
   <header class="site-header shell">
     <a class="wordmark" href="{{ '/' | relative_url }}">hhannn001</a>
     <nav aria-label="주 메뉴"><a href="{{ '/' | relative_url }}" {% if page.layout == 'home' %}aria-current="page"{% endif %}>글</a><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a><a href="https://github.com/hhannn001">GitHub</a></nav>

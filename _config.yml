@@ -6,7 +6,7 @@ baseurl: ""
 lang: ko
 timezone: Asia/Seoul
 github_username: hhannn001
-permalink: /posts/:title/
+permalink: /blog/:year/:month/:day/:title/
 show_excerpts: true
 plugins:
   - jekyll-feed
@@ -19,3 +19,23 @@ exclude:
   - Gemfile.lock
   - DESIGN.md
   - tests
+  - editor
+  - document
+  - scripts
+  - package.json
+  - package-lock.json
+  - node_modules
+  - vendor
+  - assets/SOURCES.md
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: 이주한

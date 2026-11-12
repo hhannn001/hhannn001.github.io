@@ -5,3 +5,10 @@ _site/
 .bundle/
 vendor/
 .DS_Store
+
+node_modules/
+editor/dist/
+editor/dist-electron/
+editor/release/
+editor/test-results/
+**/.trash/

@@ -1,0 +1,63 @@
+/* Reader styles shared by Jekyll and the local writing editor. */
+@font-face { font-family: "Jeju Myeongjo"; src: url("/assets/fonts/spoqa/JejuMyeongjo.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Spoqa Han Sans Neo"; src: url("/assets/fonts/spoqa/SpoqaHanSansNeo-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+:root { --line: #e6e0eb; --surface: #f4f0f8; --wash: #e9e0f1; --bg: #fff; --text: #111; --muted: #555; --ink: #111; --code-text: #111; --comment: #555; --keyword: #111; --string: #333; }
+html[data-theme="dark"] { --bg: #171717; --text: #f5f5f5; --muted: #b8b8b8; --ink: #f5f5f5; --code-text: #f5f5f5; --comment: #b8b8b8; --keyword: #fff; --string: #dedede; }
+body, a, .categories a, .publication-meta, .entry-meta, .theme-toggle, .author-avatar, .publication-avatar, .thumbnail-heading small, .callout-label { color: var(--text); }
+a:hover { color: var(--text); text-decoration: underline; }
+.follow-button, .follow-button:hover { color: var(--bg); }
+.publication-navigation { color: var(--text); }
+.category-heading { display: flex; align-items: baseline; gap: 16px; }
+.category-heading .category-title { margin-bottom: 22px; }
+.category-heading>span { font-size: 13px; color: var(--muted); }
+.subcategory-nav { display: flex; gap: 22px; overflow-x: auto; padding: 0 0 18px; margin: 0 0 32px; border-bottom: 1px solid var(--line); position: relative; }
+.subcategory-nav a { white-space: nowrap; font-size: 14px; }
+.subcategory-nav a[aria-current] { font-weight: 700; text-decoration: underline; text-underline-offset: 8px; }
+.subcategory-nav span { font-size: 12px; color: var(--muted); }
+.empty-category { grid-column: 1/-1; min-height: 220px; padding-top: 25px; }
+.content-cover { padding: 9%; display: flex; flex-direction: column; justify-content: space-between; }
+.content-cover>span { font-size: 12px; }
+.content-cover>strong { font-size: clamp(18px,1.8vw,27px); line-height: 1.4; font-weight: 500; word-break: keep-all; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.post.post--reader { width: min(808px,calc(100% - 48px)); margin: 8px auto 60px; font-family: "Nanum Gothic", "Apple SD Gothic Neo", sans-serif; color: var(--text); background: transparent; }
+.post__header { min-height: min(420px,calc(50svh - 10px)); padding: 26px 0 16px; display: flex; flex-direction: column; justify-content: flex-end; border-bottom: 1px solid var(--line); }
+.post__title { font-family: "Jeju Myeongjo",serif; font-size: clamp(2rem,3.2vw,2.72rem); font-weight: 400; letter-spacing: -.028em; line-height: 1.45; word-break: keep-all; margin: 0 0 27px; }
+.post__category-kicker { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; font-size: .9rem; line-height: 1.45; color: var(--text); }
+.post__meta { display: flex; justify-content: flex-end; gap: 12px; font-size: .74rem; color: var(--muted); margin: 0; }
+.post__content { padding-top: 30px; font-size: .96rem; line-height: 1.9; overflow-wrap: anywhere; }
+.post__content h1,.post__content h2,.post__content h3,.post__content h4 { margin: 38px 0 9px; line-height: 1.35; letter-spacing: -.012em; font-weight: 600; }
+.post__content h1 { font-size: clamp(1.34rem,2.05vw,1.6rem); }
+.post__content h2 { font-size: clamp(1.14rem,1.8vw,1.34rem); }
+.post__content h3 { font-size: clamp(1rem,1.3vw,1.1rem); }
+.post__content h4 { font-size: .96rem; }
+.post__content p,.post__content ul,.post__content ol,.post__content blockquote,.post__content table,.post__content pre { margin: 14px 0; }
+.post__content ul,.post__content ol { padding-left: 20px; }
+.post__content strong { font-weight: 600; font-size: .95em; }
+.post__content img { display: block; max-width: 100%; height: auto; margin: 18px auto; }
+.post__content figure { margin: 18px auto; }
+.post__content figcaption { font-size: .78rem; color: var(--muted); text-align: center; }
+.post__content a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.post__content mark { color: var(--text); background: var(--wash,#e9e0f1); padding: 0 .08em; }
+.post__content blockquote { border-left: 2px solid var(--line); background: var(--surface,#f5f5f5); border-radius: 0 10px 10px 0; padding: 12px 14px; }
+.post__content code { font: .84em ui-monospace,SFMono-Regular,Consolas,monospace; background: var(--surface,#f5f5f5); border: 1px solid var(--line,#ddd); border-radius: 6px; padding: .14em .35em; color: var(--text); }
+.post__content pre { padding: 14px; overflow-x: auto; border-radius: 12px; background: var(--surface,#f5f5f5); }
+.post__content .highlight { border-radius: 12px; }
+.post__content .highlight pre { margin: 0; }
+.post__content pre code { padding: 0; border: 0; background: transparent; color: var(--text); }
+.post__content .highlight span, .post__content code.hljs span { color: var(--text); }
+.post__content .highlight .c,.post__content .highlight .c1 { color: var(--muted); }
+.post__content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.post__content td,.post__content th { padding: 10px 12px; border: 1px solid var(--line,#ddd); }
+.post__content th { background: var(--surface,#f5f5f5); }
+.post__content hr { border: 0; border-top: 1px solid var(--line,#ddd); margin: 30px 0; }
+.post__tail { margin: 80px 0 40px; }
+.post__tags { list-style: none; display: flex; gap: 10px; padding: 0; flex-wrap: wrap; }
+.post__tags li { background: var(--surface,#f5f5f5); color: var(--text); border-radius: 4px; padding: 4px 9px; font-size: 12px; }
+.post-feed { border-top: 1px solid var(--line,#ddd); padding-top: 24px; margin-top: 40px; }
+.post-feed h2 { font-size: 18px; font-weight: 500; }
+.post-feed ul { list-style: none; padding: 0; }
+.post-feed li { display: flex; gap: 18px; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line,#ddd); font-size: 14px; }
+.post-feed time { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.post-feed-all { display: inline-block; margin-top: 16px; font-size: 13px; }
+@media(max-width:727.98px) { .post__header { min-height: 240px; } .post__title { font-size: 30px; } .post-feed li { display: block; } .post-feed time { display: block; margin-top: 5px; } .subcategory-nav { gap: 18px; } .content-cover>strong { font-size: 23px; } }
+
+.prose a, .preview-post .post__content code.hljs span { color: var(--text); }
