@@ -1,0 +1,6 @@
+{% assign active_group = nil %}
+{% assign active_category = page.category | default: '' %}
+{% for group in site.data.sidebar_categories %}
+  {% if page.category_group == group.id or active_category == group.id %}{% assign active_group = group %}{% endif %}
+  {% for item in group.items %}{% if active_category == item.id %}{% assign active_group = group %}{% endif %}{% endfor %}
+{% endfor %}

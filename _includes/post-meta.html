@@ -1,0 +1,15 @@
+{% assign display_title = include.post.title %}
+{% assign series_title = '' %}
+{% assign title_first = display_title | slice: 0, 1 %}
+{% if title_first == '[' and display_title contains ']' %}
+  {% assign series_token = display_title | split: ']' | first %}
+  {% assign series_title = series_token | remove_first: '[' | strip %}
+  {% assign display_title = display_title | remove_first: series_token | remove_first: ']' | strip %}
+{% endif %}
+{% assign category_id = include.post.categories | first %}
+{% assign category_name = category_id %}
+{% assign parent_group = nil %}
+{% for group in site.data.sidebar_categories %}
+  {% if group.id == category_id %}{% assign parent_group = group %}{% assign category_name = group.label %}{% endif %}
+  {% for item in group.items %}{% if item.id == category_id %}{% assign category_name = item.label %}{% assign parent_group = group %}{% endif %}{% endfor %}
+{% endfor %}

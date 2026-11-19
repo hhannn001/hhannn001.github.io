@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem('blog-theme') === 'dark' ? 'dark' : 'light';
+    } catch (_) {}
+  </script>
+  {% seo %}
+  {% feed_meta %}
+  <link rel="stylesheet" href="{{ '/assets/blog.css' | relative_url }}">
+  <script defer src="{{ '/assets/blog.js' | relative_url }}"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="{{ page.layout }}{% if page.category_board %} filtered{% endif %}">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  {% unless page.layout == 'home' or page.category_board %}
+  <header class="site-header shell">
+    <a class="wordmark" href="{{ '/' | relative_url }}">hhannn001</a>
+    <nav aria-label="주 메뉴"><a href="{{ '/' | relative_url }}" {% if page.layout == 'home' %}aria-current="page"{% endif %}>글</a><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a><a href="https://github.com/hhannn001">GitHub</a></nav>
+    {% include search.html id="desktop" %}
+  </header>
+  {% endunless %}
+  {% unless page.layout == 'home' %}<div class="mobile-profile">{% include publication-profile.html %}</div>{% endunless %}
+  {% unless page.layout == 'home' or page.category_board %}<div class="mobile-main-nav">{% include category-context.html %}{% include publication-nav.html %}</div>{% endunless %}
+  <main id="main">{{ content }}</main>
+  <footer class="site-footer shell"><span>hhannn001</span><div><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="https://github.com/hhannn001/hhannn001.github.io">블로그 소스</a>{% include theme-toggle.html %}</div></footer>
+</body>
+</html>

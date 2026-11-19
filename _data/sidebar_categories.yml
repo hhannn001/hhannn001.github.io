@@ -1,0 +1,36 @@
+- id: programming
+  label: 프로그래밍
+  default_open: true
+  items:
+    - id: ai
+      label: AI
+    - id: algorithm
+      label: Algorithm
+    - id: cs
+      label: CS
+    - id: javascript
+      label: JS
+    - id: project
+      label: Project
+    - id: se
+      label: Software Engineering
+    - id: devops
+      label: DevOps
+- id: finance
+  label: 금융
+  items:
+    - id: investment-journal
+      label: 투자일지
+    - id: investment-strategy
+      label: 투자전략
+    - id: economy-note
+      label: 시장 메모
+- id: daily
+  label: 일상
+  items:
+    - id: experience
+      label: 경험
+    - id: hobby
+      label: 취미
+    - id: journal
+      label: 회고
